@@ -175,6 +175,18 @@
     "message": "This promotion cannot be resumed in its current state.",
     "error_code": "promotion_not_resumable"
   },
+  "connect_account_not_created": {
+    "message": "No Stripe Connect account exists for this provider yet. Start Connect onboarding first.",
+    "error_code": "connect_account_not_created"
+  },
+  "connect_redirect_urls_not_configured": {
+    "message": "Stripe Connect return/refresh URLs are not configured. Set STRIPE_CONNECT_RETURN_URL and STRIPE_CONNECT_REFRESH_URL, or CLIENT_HOST.",
+    "error_code": "connect_redirect_urls_not_configured"
+  },
+  "payment_gateway_not_configured": {
+    "message": "Payment gateway is not configured. Set STRIPE_ENABLED=true and STRIPE_SECRET_KEY in maestro .env, then restart the API.",
+    "error_code": "payment_gateway_not_configured"
+  },
   "provider_cannot_order_own_listing": {
     "message": "A provider cannot order their own listing.",
     "error_code": "provider_cannot_order_own_listing"

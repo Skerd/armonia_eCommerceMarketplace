@@ -7,6 +7,7 @@ export type ProviderProfile = {
         name?: string;
         surname?: string;
         photo?: string;
+        fullName?: string;
     };
     skills?: string[];
     bio?: string;
@@ -14,4 +15,10 @@ export type ProviderProfile = {
     averageRating?: number;
     reviewCount?: number;
     completionRate?: number;
+    /** Stripe Connect Express — read-only; mutated via createAccountLink / refreshAccountStatus. */
+    stripeAccountId?: string;
+    stripeChargesEnabled?: boolean;
+    stripePayoutsEnabled?: boolean;
+    stripeDetailsSubmitted?: boolean;
+    stripeAccountSyncedAt?: string;
 };

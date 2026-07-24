@@ -175,6 +175,18 @@
     "message": "Kjo promovim nuk mund të rifillojë në gjendjen aktuale.",
     "error_code": "promotion_not_resumable"
   },
+  "connect_account_not_created": {
+    "message": "Nuk ekziston ende një llogari Stripe Connect për këtë ofrues. Nisni fillimisht onboarding-un Connect.",
+    "error_code": "connect_account_not_created"
+  },
+  "connect_redirect_urls_not_configured": {
+    "message": "URL-të e kthimit/rifreskimit të Stripe Connect nuk janë të konfiguruara. Vendosni STRIPE_CONNECT_RETURN_URL dhe STRIPE_CONNECT_REFRESH_URL, ose CLIENT_HOST.",
+    "error_code": "connect_redirect_urls_not_configured"
+  },
+  "payment_gateway_not_configured": {
+    "message": "Porta e pagesave nuk është e konfiguruar. Vendosni STRIPE_ENABLED=true dhe STRIPE_SECRET_KEY në maestro .env, pastaj rindizni API-në.",
+    "error_code": "payment_gateway_not_configured"
+  },
   "provider_cannot_order_own_listing": {
     "message": "Një ofrues nuk mund të porosisë listimin e vet.",
     "error_code": "provider_cannot_order_own_listing"
