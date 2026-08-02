@@ -3,6 +3,26 @@
     "message": "This listing has already been flagged.",
     "error_code": "already_flagged"
   },
+  "admin_only": {
+    "message": "Only administrators can perform this action.",
+    "error_code": "admin_only"
+  },
+  "listing_flag_cannot_dismiss_in_current_status": {
+    "message": "Only pending listing flags can be dismissed.",
+    "error_code": "listing_flag_cannot_dismiss_in_current_status"
+  },
+  "listing_flag_cannot_edit_in_current_status": {
+    "message": "Only pending listing flags can be edited.",
+    "error_code": "listing_flag_cannot_edit_in_current_status"
+  },
+  "listing_flag_cannot_resolve_in_current_status": {
+    "message": "Only pending listing flags can be resolved.",
+    "error_code": "listing_flag_cannot_resolve_in_current_status"
+  },
+  "listing_flag_deleted": {
+    "message": "This listing flag has been deleted.",
+    "error_code": "listing_flag_deleted"
+  },
   "bid_not_found_or_already_processed": {
     "message": "Bid not found or already processed.",
     "error_code": "bid_not_found_or_already_processed"
@@ -78,6 +98,14 @@
   "only_customer_can_review": {
     "message": "Only the customer can submit a review.",
     "error_code": "only_customer_can_review"
+  },
+  "only_listing_provider_can_create_add_on": {
+    "message": "Only the listing provider can create an add-on for this listing.",
+    "error_code": "only_listing_provider_can_create_add_on"
+  },
+  "only_listing_provider_can_create_package": {
+    "message": "Only the listing provider can create a package for this listing.",
+    "error_code": "only_listing_provider_can_create_package"
   },
   "only_listing_provider_can_delete_add_on": {
     "message": "Only the listing provider can delete this add-on.",

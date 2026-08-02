@@ -1,10 +1,15 @@
-import type {DeletedData, OwnershipData} from "../../../../../core/types/shared.types";
+import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
 
-export type ListingPackage = OwnershipData & DeletedData & {
+export type ListingPackage = OwnershipData & DeletedData & LifeCycleData & {
     _id: string;
     listing?: {
         _id: string;
         title?: string;
+    };
+    provider?: {
+        _id: string;
+        name: string;
+        surname: string;
     };
     name: string;
     description?: string;

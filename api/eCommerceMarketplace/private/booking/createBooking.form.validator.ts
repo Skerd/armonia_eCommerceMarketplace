@@ -1,14 +1,18 @@
-import {isObjectIdZod, notEmptyZod} from "../../../../../core/helpers/zodBuilder";
-import {z} from "zod";
+import type {ZodObject} from "zod";
+import {buildCreateZodSchema} from "../../../../../core/helpers/schemaDefBuilder";
+import {dateAfterFieldZod} from "../../../../../core/helpers/zodBuilder";
+import {BookingSchemaDef} from "./booking.schema-def";
 
-/**
- * Create payload uses orderId (not order ref) and ISO date strings — hand-written Zod; see booking.schema-def.
- */
-export function createBookingFormSchema(languageCode: string, form: any = null) {
-    return z.object({
-        orderId: isObjectIdZod(form?.["orderIdLabel"] ?? "orderId", languageCode),
-        startAt: notEmptyZod(form?.["startAtLabel"] ?? "startAt", languageCode),
-        endAt: notEmptyZod(form?.["endAtLabel"] ?? "endAt", languageCode),
-        timezone: z.string().max(100).optional(),
-    });
+const CreateBookingSchemaDef = {
+    order: BookingSchemaDef.order,
+    startAt: BookingSchemaDef.startAt,
+    endAt: BookingSchemaDef.endAt,
+    timezone: BookingSchemaDef.timezone,
+} as const;
+
+export function createBookingFormSchema(languageCode: string, form: any = null): ZodObject<any> {
+    return dateAfterFieldZod("endAt", "startAt", languageCode, {
+        dateField: form?.["endAtLabel"] ?? "endAt",
+        otherField: form?.["startAtLabel"] ?? "startAt",
+    })(buildCreateZodSchema(CreateBookingSchemaDef, languageCode, form)) as ZodObject<any>;
 }

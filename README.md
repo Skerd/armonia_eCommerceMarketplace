@@ -1,50 +1,39 @@
 # eCommerce Marketplace Module
 
-Shared types, schema definitions, and Zod validators for the Arpeggio marketplace layer — a peer-to-peer / services marketplace built on top of core commerce primitives.
+Shared types, schema definitions, and Zod validators for the Arpeggio marketplace layer.
 
-Consumed by **maestro** (API + database) and **sinfonia** (provider and buyer UI).
+Consumed by **maestro** (API + database) and **sinfonia** (panel UI).
 
-Enable at runtime via `ENABLED_MODULES` (maestro) or `VITE_ENABLED_MODULES` (sinfonia). Add `eCommerceMarketplace` to the module list.
-
-## Scope
-
-Listings, provider profiles, bidding, bookings, marketplace orders, reviews, disputes, and promotions. Complements the **eCommerce** module for traditional catalog commerce.
+Enable via `ENABLED_MODULES` / `VITE_ENABLED_MODULES` with `eCommerceMarketplace`.
 
 ## Directory layout
 
 ```
 eCommerceMarketplace/
 ├── api/eCommerceMarketplace/private/<resource>/
+│   ├── *.dto.ts
+│   ├── *.schema-def.ts
+│   └── *.form.validator.ts / *.form.type.ts
 └── helpers/static/
-    ├── exceptions/
-    └── zod/
+    └── exceptions/
 ```
 
 ## API domains
 
 | Resource | Description |
 |----------|-------------|
-| `listing` | Marketplace listings (services, gigs, rentals, etc.) |
-| `listingPackage` / `listingAddOn` | Bundled offerings and optional add-ons |
-| `listingFlag` | Moderation flags on listings |
-| `providerProfile` / `providerAvailability` | Seller/provider identity and scheduling |
-| `taskRequest` / `bid` | Buyer requests and provider bids |
-| `booking` | Scheduled appointments or reservations |
-| `order` | Marketplace order lifecycle |
-| `review` | Buyer/seller reviews and ratings |
-| `dispute` | Dispute resolution |
-| `promotion` | Marketplace-specific promotions |
+| `listing` / `listingCategory` | Listings and taxonomy |
+| `listingPackage` / `listingAddOn` / `listingFlag` | Packages, add-ons, flags |
+| `providerProfile` | Provider identity, portfolio, and weekly availability |
+| `taskRequest` / `bid` | Buyer requests and bids |
+| `booking` | Appointments |
+| `order` | Marketplace order lifecycle (+ action validators) |
+| `orderDelivery` / `orderMilestone` / `orderRevision` | Order sub-documents (dto + schema-def) |
+| `review` / `dispute` / `promotion` | Reviews, disputes, promotions |
 
-## File conventions
+## Escrow ownership
 
-Same Armonia patterns as core and eCommerce:
-
-- `*.dto.ts` — shared document types
-- `*.schema-def.ts` — single source of truth for field validation
-- `*.form.validator.ts` — Zod schemas generated from schema-defs
-- `*.form.type.ts` — typed form inputs and responses
-
-See the [core README](../../../README.md) for details on `schemaDefBuilder` and `zodBuilder`.
+Escrow persistence and fee config live in **finance**. Marketplace OrderActions call finance helpers; they do not own `EscrowTransaction` contracts.
 
 ## Example import
 
@@ -52,15 +41,3 @@ See the [core README](../../../README.md) for details on `schemaDefBuilder` and 
 import {ListingSchemaDef} from "armonia/src/modules/eCommerceMarketplace/api/eCommerceMarketplace/private/listing/listing.schema-def";
 import type {Listing} from "armonia/src/modules/eCommerceMarketplace/api/eCommerceMarketplace/private/listing/listing.dto";
 ```
-
-## Backend counterpart
-
-Mongoose models and routes: `maestro/modules/eCommerceMarketplace/`. Models are registered in `maestro/modules/eCommerceMarketplace/database/moduleBootstrap.ts`.
-
-## Frontend counterpart
-
-Panel and storefront contributions: `sinfonia/src/modules/eCommerceMarketplace/`.
-
-## Relationship to eCommerce
-
-Use **eCommerce** for standard product catalog, cart, and warehouse flows. Use **eCommerceMarketplace** when the business model involves listings, providers, bids, bookings, or marketplace-specific order/dispute flows. Both modules can be enabled together.

@@ -1,13 +1,9 @@
-import type {DeletedData, OwnershipData} from "../../../../../core/types/shared.types";
+import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
 
 export type BidStatus = "pending" | "accepted" | "rejected";
 
-export type Bid = OwnershipData & DeletedData & {
+export type Bid = OwnershipData & DeletedData & LifeCycleData & {
     _id: string;
-    listing?: {
-        _id: string;
-        title?: string;
-    };
     taskRequest: {
         _id: string;
         name?: string;

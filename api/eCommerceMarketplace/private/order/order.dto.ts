@@ -1,4 +1,4 @@
-import type {DeletedData, OwnershipData} from "../../../../../core/types/shared.types";
+import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
 import type {OrderStatus} from "./order.schema-def";
 import {BidStatus} from "../bid/bid.dto";
 import {TaskRequest} from "../taskRequest/taskRequest.dto";
@@ -7,7 +7,7 @@ import {ListingStatus} from "../listing/listing.schema-def";
 
 export type {OrderStatus} from "./order.schema-def";
 
-export type Order = OwnershipData & DeletedData & {
+export type Order = OwnershipData & DeletedData & LifeCycleData & {
     _id: string;
     name: string;
     listing?: {

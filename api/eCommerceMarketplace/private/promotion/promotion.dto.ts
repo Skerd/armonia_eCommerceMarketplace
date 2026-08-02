@@ -1,7 +1,7 @@
-import type {DeletedData, OwnershipData} from "../../../../../core/types/shared.types";
+import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
 import type {PromotionLifecycleStatus, PromotionType} from "./promotion.schema-def";
 
-export type Promotion = DeletedData & OwnershipData & {
+export type Promotion = DeletedData & OwnershipData & LifeCycleData & {
     _id: string;
     name: string;
     listing?: {

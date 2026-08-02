@@ -5,7 +5,6 @@ import type {InferCreateForm} from "../../../../../core/helpers/schemaDefBuilder
  * bidder and currency are derived server-side (bidder = current user, currency = from taskRequest).
  */
 export const BidSchemaDef = {
-    // listing:      {type: "objectId", required: false},
     taskRequest:  {type: "objectId", required: true},
     amount:       {type: "number",   required: true, min: 0},
     proposal:     {type: "string",   required: true},

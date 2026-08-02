@@ -1,10 +1,10 @@
-import type {DeletedData, OwnershipData} from "../../../../../core/types/shared.types";
+import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
 
-export type ListingCategory = OwnershipData & DeletedData & {
+export type ListingCategory = OwnershipData & DeletedData & LifeCycleData & {
     _id: string;
     name: string;
     slug: string;
-    parent?: {
+    parentListingCategory?: {
         _id: string;
         name: string;
         slug: string;

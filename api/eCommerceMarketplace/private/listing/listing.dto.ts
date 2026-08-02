@@ -1,9 +1,9 @@
 import type {Media} from "../../../../../core/types";
-import type {DeletedData, OwnershipData} from "../../../../../core/types/shared.types";
+import type {DeletedData, LifeCycleData, OwnershipData} from "../../../../../core/types/shared.types";
 import type {ListingAddOn} from "../listingAddOn/listingAddOn.dto";
 import type {ListingPackage} from "../listingPackage/listingPackage.dto";
 
-export type Listing = DeletedData & OwnershipData & {
+export type Listing = DeletedData & OwnershipData & LifeCycleData & {
     _id: string;
     name: string;
     title: string;

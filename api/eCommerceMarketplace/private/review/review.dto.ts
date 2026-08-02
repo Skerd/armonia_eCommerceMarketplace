@@ -1,6 +1,6 @@
-import type {DeletedData, OwnershipData} from "../../../../../core/types/shared.types";
+import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
 
-export type Review = OwnershipData & DeletedData & {
+export type Review = OwnershipData & DeletedData & LifeCycleData & {
     _id: string;
     order?: {
         _id: string;
@@ -34,7 +34,6 @@ export type Review = OwnershipData & DeletedData & {
         surname?: string;
         photo?: string;
     };
-    createdAt?: string;
 };
 
 export type ReviewListResponse = {

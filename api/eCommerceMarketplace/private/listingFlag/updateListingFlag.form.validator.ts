@@ -4,8 +4,7 @@ import {isObjectIdZod} from "../../../../../core/helpers/zodBuilder";
 export function updateListingFlagFormSchema(languageCode: string, form: any = null) {
     return z.object({
         _id: isObjectIdZod(form?.["_idLabel"] ?? "_id", languageCode),
-        status: z.enum(["pending", "reviewed", "dismissed"]),
-        resolution: z.string().max(2000).optional(),
-        listingAction: z.enum(["none", "deactivate"]).optional(),
+        reason: z.enum(["inappropriate", "spam", "misleading", "other"]),
+        comment: z.string().max(2000).optional(),
     });
 }

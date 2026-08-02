@@ -5,6 +5,6 @@ export function createListingFlagFormSchema(languageCode: string, form: any = nu
     return z.object({
         listingId: isObjectIdZod(form?.["listingIdLabel"] ?? "listingId", languageCode),
         reason: z.enum(["inappropriate", "spam", "misleading", "other"]),
-        comment: z.string().max(2000).optional(),
+        comment: z.string().optional(),
     });
 }

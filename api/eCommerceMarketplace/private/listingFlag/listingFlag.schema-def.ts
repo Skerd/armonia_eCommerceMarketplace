@@ -18,7 +18,12 @@ export type CreateListingFlagFormType = Omit<InferCreateForm<typeof ListingFlagS
 
 export type UpdateListingFlagFormType = {
     _id: string;
-    status: "pending" | "reviewed" | "dismissed";
-    resolution?: string;
+    reason: "inappropriate" | "spam" | "misleading" | "other";
+    comment?: string;
+};
+
+export type ResolveListingFlagActionFormType = {
+    _id: string;
+    resolution: string;
     listingAction?: "none" | "deactivate";
 };

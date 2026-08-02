@@ -1,17 +1,25 @@
+import type {LifeCycleData} from "../../../../../core/types/shared.types";
 import {Media} from "../../../../../core/types";
 
-export type ProviderProfile = {
+export type ProviderAvailabilitySlot = {
+    dayOfWeek: number;
+    startTime: string;
+    endTime: string;
+};
+
+export type ProviderProfile = LifeCycleData & {
     _id?: string;
     user: {
         _id: string;
         name?: string;
         surname?: string;
         photo?: string;
-        fullName?: string;
     };
     skills?: string[];
     bio?: string;
-    portfolio?: Media[],
+    portfolio?: Media[];
+    /** Weekly recurring availability windows. */
+    availability?: ProviderAvailabilitySlot[];
     averageRating?: number;
     reviewCount?: number;
     completionRate?: number;

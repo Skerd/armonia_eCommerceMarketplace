@@ -1,12 +1,6 @@
-export type OrderRevision = {
-    _id: string;
-    orderId: string;
-    deliveryId: string;
-    requestedById: string;
-    reason: string;
-    status: "pending" | "completed";
-    createdAt?: string;
-};
+import type {OrderRevision} from "./orderRevision.dto";
+
+export type {OrderRevision} from "./orderRevision.dto";
 
 export type OrderRevisionFormResponseType = {
     data: OrderRevision[];

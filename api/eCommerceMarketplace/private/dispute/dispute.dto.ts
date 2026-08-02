@@ -1,7 +1,7 @@
-import type {DeletedData, OwnershipData} from "../../../../../core/types/shared.types";
+import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
 import type {DisputeStatus} from "./dispute.schema-def";
 
-export type Dispute = OwnershipData & DeletedData & {
+export type Dispute = OwnershipData & DeletedData & LifeCycleData & {
     _id: string;
     order?: {
         _id: string;

@@ -1,7 +1,7 @@
 import type { Media } from "../../../../../core/types";
-import type { DeletedData, OwnershipData } from "../../../../../core/types/shared.types";
+import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
 
-export type TaskRequest = DeletedData & OwnershipData & {
+export type TaskRequest = DeletedData & OwnershipData & LifeCycleData & {
     _id: string;
     requester?: {
         _id: string;

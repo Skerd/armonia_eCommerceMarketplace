@@ -1,13 +1,6 @@
-export type OrderMilestone = {
-    _id: string;
-    orderId: string;
-    name: string;
-    amount: number;
-    currencyId: string;
-    currencySymbol?: string;
-    status: "pending" | "released" | "delivered";
-    orderIndex: number;
-};
+import type {OrderMilestone} from "./orderMilestone.dto";
+
+export type {OrderMilestone} from "./orderMilestone.dto";
 
 export type OrderMilestoneFormResponseType = {
     data: OrderMilestone[];
