@@ -8,7 +8,7 @@ export type ProviderAvailabilitySlot = {
 };
 
 export type ProviderProfile = LifeCycleData & {
-    _id?: string;
+    _id: string;
     user: {
         _id: string;
         name?: string;
