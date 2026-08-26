@@ -22,9 +22,9 @@ export const TaskRequestSchemaDef = {
     budgetMax: {type: "number", required: true, min: 0},
     currency: {type: "objectId", required: true},
     address: {type: "embedded", required: true, items: TaskRequestAddressDef},
-    mainImage: {type: "mediaId", required: true},
-    imageGallery: {type: "mediaIdArray", required: false},
-    videoGallery: {type: "mediaIdArray", required: false},
+    mainImage: {type: "mediaId", required: true, publicAccess: true},
+    imageGallery: {type: "mediaIdArray", required: false, publicAccess: true},
+    videoGallery: {type: "mediaIdArray", required: false, publicAccess: true},
 } as const;
 
 export type CreateTaskRequestFormType = InferCreateForm<typeof TaskRequestSchemaDef>;

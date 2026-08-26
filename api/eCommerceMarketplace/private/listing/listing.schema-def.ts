@@ -23,9 +23,9 @@ export const ListingSchemaDef = {
             city: {type: "objectId", required: false},
         }
     },
-    mainImage: {type: "mediaId", required: true},
-    imageGallery: {type: "mediaIdArray", required: false},
-    videoGallery: {type: "mediaIdArray", required: false},
+    mainImage: {type: "mediaId", required: true, publicAccess: true},
+    imageGallery: {type: "mediaIdArray", required: false, publicAccess: true},
+    videoGallery: {type: "mediaIdArray", required: false, publicAccess: true},
     faqs: {
         type: "embeddedArray",
         required: false,
