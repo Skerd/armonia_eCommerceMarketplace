@@ -1,5 +1,4 @@
 import {buildCreateZodSchema} from "../../../../../core/helpers/schemaDefBuilder";
-import {isObjectIdZod} from "../../../../../core/helpers/zodBuilder";
 import {ReviewSchemaDef} from "./review.schema-def";
 
 const CreateReviewFieldsSchemaDef = {

@@ -1,7 +1,6 @@
 import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
 import type {OrderStatus} from "./order.schema-def";
 import {BidStatus} from "../bid/bid.dto";
-import {TaskRequest} from "../taskRequest/taskRequest.dto";
 import {TaskRequestStatus} from "../taskRequest/taskRequest.schema-def";
 import {ListingStatus} from "../listing/listing.schema-def";
 
