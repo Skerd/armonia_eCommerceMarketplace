@@ -1,44 +1,28 @@
-import type { Media } from "../../../../../core/types";
+import type {Media} from "../../../../../core/types";
 import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
+import type {CurrencySimple} from "../../../../../core/dto/currency.dto";
+import type {CountrySimple} from "../../../../../core/dto/country.dto";
+import type {StateSimple} from "../../../../../core/dto/state.dto";
+import type {CitySimple} from "../../../../../core/dto/city.dto";
+import type {SimpleUser} from "../../../../../core/dto/user.dto";
+import type {ListingCategorySimple} from "../../../../dto/listingCategory.dto";
 
 export type TaskRequest = DeletedData & OwnershipData & LifeCycleData & {
     _id: string;
-    requester?: {
-        _id: string;
-        name: string;
-        surname: string;
-        photo?: string;
-    };
+    requester?: SimpleUser;
     name: string;
     title: string;
     description: string;
-    category?: {
-        _id: string;
-        name: string;
-    };
+    category?: ListingCategorySimple;
     budgetMin?: number;
     budgetMax?: number;
-    currency?: {
-        _id: string;
-        name: string;
-        symbol: string;
-        abbreviation: string;
-    };
+    currency?: CurrencySimple;
     address?: {
         street?: string;
         postalCode?: string;
-        country?: {
-            _id: string;
-            name: string;
-        };
-        state?: {
-            _id: string;
-            name: string;
-        };
-        city?: {
-            _id: string;
-            name: string;
-        };
+        country?: CountrySimple;
+        state?: StateSimple;
+        city?: CitySimple;
         latitude?: number;
         longitude?: number;
     };

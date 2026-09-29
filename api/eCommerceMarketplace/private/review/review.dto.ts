@@ -1,39 +1,15 @@
 import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
+import type {SimpleUser} from "../../../../../core/dto/user.dto";
+import type {ListingSimple} from "../../../../dto/listing.dto";
+import type {OrderWithTaskOrListing} from "../../../../dto/order.dto";
 
 export type Review = OwnershipData & DeletedData & LifeCycleData & {
     _id: string;
-    order?: {
-        _id: string;
-        name?: string;
-        status?: string;
-        amount?: number;
-        currency?: {
-            _id: string;
-            symbol?: string;
-            abbreviation?: string;
-        };
-        taskRequest?: {
-            _id: string;
-            name?: string;
-            title?: string;
-            status?: string;
-        };
-        listing?: {
-            _id: string;
-            name?: string;
-            title?: string;
-            status?: string;
-        };
-    };
-    listing?: {_id: string; title?: string};
+    order?: OrderWithTaskOrListing;
+    listing?: ListingSimple;
     rating: number;
     comment?: string;
-    reviewer?: {
-        _id: string;
-        name?: string;
-        surname?: string;
-        photo?: string;
-    };
+    reviewer?: SimpleUser;
 };
 
 export type ReviewListResponse = {

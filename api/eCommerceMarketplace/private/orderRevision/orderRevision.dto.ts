@@ -1,8 +1,6 @@
 import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
 import type {OrderRevisionStatus} from "./orderRevision.schema-def";
 
-export type {OrderRevisionStatus} from "./orderRevision.schema-def";
-
 export type OrderRevision = OwnershipData & DeletedData & LifeCycleData & {
     _id: string;
     orderId: string;

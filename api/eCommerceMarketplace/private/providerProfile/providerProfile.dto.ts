@@ -1,5 +1,6 @@
 import type {LifeCycleData} from "../../../../../core/types/shared.types";
-import {Media} from "../../../../../core/types";
+import type {Media} from "../../../../../core/types";
+import type {SimpleUser} from "../../../../../core/dto/user.dto";
 
 export type ProviderAvailabilitySlot = {
     dayOfWeek: number;
@@ -9,12 +10,7 @@ export type ProviderAvailabilitySlot = {
 
 export type ProviderProfile = LifeCycleData & {
     _id: string;
-    user: {
-        _id: string;
-        name?: string;
-        surname?: string;
-        photo?: string;
-    };
+    user?: SimpleUser;
     skills?: string[];
     bio?: string;
     portfolio?: Media[];

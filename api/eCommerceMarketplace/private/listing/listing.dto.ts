@@ -1,5 +1,12 @@
 import type {Media} from "../../../../../core/types";
 import type {DeletedData, LifeCycleData, OwnershipData} from "../../../../../core/types/shared.types";
+import type {CurrencySimple} from "../../../../../core/dto/currency.dto";
+import type {CountrySimple} from "../../../../../core/dto/country.dto";
+import type {StateSimple} from "../../../../../core/dto/state.dto";
+import type {CitySimple} from "../../../../../core/dto/city.dto";
+import type {SimpleUser} from "../../../../../core/dto/user.dto";
+import type {ListingCategorySimple} from "../../../../dto/listingCategory.dto";
+import type {PromotionSimple} from "../../../../dto/promotion.dto";
 import type {ListingAddOn} from "../listingAddOn/listingAddOn.dto";
 import type {ListingPackage} from "../listingPackage/listingPackage.dto";
 
@@ -8,37 +15,16 @@ export type Listing = DeletedData & OwnershipData & LifeCycleData & {
     name: string;
     title: string;
     description?: string;
-    category?: {
-        _id: string;
-        name: string;
-    };
-    provider?: {
-        _id: string;
-        name: string;
-        surname: string;
-    };
+    category?: ListingCategorySimple;
+    provider?: SimpleUser;
     price?: number;
-    priceCurrency?: {
-        _id: string;
-        name: string;
-        symbol: string;
-        abbreviation: string;
-    };
+    priceCurrency?: CurrencySimple;
     pricingType?: "fixed" | "hourly";
     deliveryDays?: number;
     address?: {
-        country?: {
-            _id: string;
-            name?: string;
-        };
-        state?: {
-            _id: string;
-            name?: string;
-        };
-        city?: {
-            _id: string;
-            name?: string
-        };
+        country?: CountrySimple;
+        state?: StateSimple;
+        city?: CitySimple;
     };
     status?: string;
     mainImage?: Media;
@@ -47,13 +33,7 @@ export type Listing = DeletedData & OwnershipData & LifeCycleData & {
     faqs?: {question: string; answer: string}[];
     requirements?: string[];
     tags?: string[];
-    promotions?: {
-        _id: string;
-        name: string;
-        type: "featured" | "sponsored";
-        startAt: Date | string;
-        endAt: Date | string;
-    }[];
+    promotions?: PromotionSimple[];
     avgRating?: number;
     reviewCount?: number;
     listingAddOns?: ListingAddOn[];

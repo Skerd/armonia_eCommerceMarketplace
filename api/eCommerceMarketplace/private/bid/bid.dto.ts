@@ -1,28 +1,17 @@
 import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
+import type {CurrencySimple} from "../../../../../core/dto/currency.dto";
+import type {SimpleUser} from "../../../../../core/dto/user.dto";
+import type {TaskRequestSimple} from "../../../../dto/taskRequest.dto";
 
 export type BidStatus = "pending" | "accepted" | "rejected";
 
 export type Bid = OwnershipData & DeletedData & LifeCycleData & {
     _id: string;
-    taskRequest: {
-        _id: string;
-        name?: string;
-        title?: string;
-    };
+    taskRequest?: TaskRequestSimple;
     name: string;
-    bidder: {
-        _id: string;
-        name?: string;
-        surname?: string;
-        photo?: string;
-    };
+    bidder?: SimpleUser;
     amount: number;
-    currency: {
-        _id: string;
-        name?: string;
-        symbol?: string;
-        abbreviation?: string;
-    };
+    currency?: CurrencySimple;
     proposal: string;
     deliveryDays: number;
     status: BidStatus;

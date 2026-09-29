@@ -1,38 +1,12 @@
 import type {DeletedData, OwnershipData, LifeCycleData} from "../../../../../core/types/shared.types";
+import type {SimpleUser} from "../../../../../core/dto/user.dto";
+import type {OrderWithTaskOrListing} from "../../../../dto/order.dto";
 import type {DisputeStatus} from "./dispute.schema-def";
 
 export type Dispute = OwnershipData & DeletedData & LifeCycleData & {
     _id: string;
-    order?: {
-        _id: string;
-        name?: string;
-        status?: string
-        amount?: number;
-        currency?: {
-            _id: string,
-            name?: string,
-            symbol?: string,
-            abbreviation?: string
-        },
-        taskRequest?: {
-            _id: string,
-            name?: string,
-            title?: string,
-            status?: string,
-        },
-        listing?: {
-            _id: string,
-            name?: string,
-            title?: string,
-            status?: string,
-        }
-    };
-    initiator?: {
-        _id: string;
-        name?: string;
-        surname?: string;
-        photo?: string;
-    };
+    order?: OrderWithTaskOrListing;
+    initiator?: SimpleUser;
     reason: string;
     status: DisputeStatus;
     resolution?: string;
