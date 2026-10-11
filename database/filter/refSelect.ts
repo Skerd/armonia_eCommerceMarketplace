@@ -1,8 +1,8 @@
 import {registerRefSelects, type RefSelectConfig} from "../../../core/database/filter/refSelectRegistry";
 
-export const ECOMMERCE_MARKETPLACE_REF_SELECTS = {
+export const ECOMMERCE_MARKETPLACE_REF_SELECTS: Record<string, RefSelectConfig> = {
     ListingCategory: {apiUrl: "/api/eCommerceMarketplace/listingCategory/select"},
-} as const satisfies Record<string, RefSelectConfig>;
+};
 
 export function registerECommerceMarketplaceRefSelects(): void {
     registerRefSelects(ECOMMERCE_MARKETPLACE_REF_SELECTS);
